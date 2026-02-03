@@ -6,7 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import Home from "./Components/Home";
-// import About from "./Components/About";
+import About from "./Components/About";
 import { useState, useEffect } from "react";
 
 
@@ -42,7 +42,7 @@ function AppContent() {
       <Box as="main" mt={!hideHeaderFooter ? 4 : 0}>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/about" element={<About />} /> */}
+          <Route path="/about" element={<About />} />
 
         </Routes>
       </Box>

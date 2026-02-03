@@ -1,5 +1,23 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { useDisclosure, useColorModeValue, Box, Flex, Heading, HStack, Button, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, VStack, Link as ChakraLink } from "@chakra-ui/react";
+import {
+  useDisclosure,
+  useColorModeValue,
+  Box,
+  Flex,
+  Heading,
+  HStack,
+  Button,
+  IconButton,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  VStack,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
+import { useState } from "react";
 
 // Add prop type (you can skip TS if not using strict mode)
 interface HeaderProps {
@@ -11,6 +29,7 @@ export default function Header({ projectsRef, aboutRef }: HeaderProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const bg = useColorModeValue("white", "gray.900");
   const borderColor = useColorModeValue("gray.200", "gray.700");
+  const [activeLink, setActiveLink] = useState<string>("home"); // default 'home'
 
   // Remove these two lines – they are no longer needed here
   // const projectsRef = useRef<HTMLDivElement>(null);
@@ -22,8 +41,19 @@ export default function Header({ projectsRef, aboutRef }: HeaderProps) {
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  // const scrollToTop = () => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // };
+  const handleLinkClick = (
+    page: string,
+    ref?: React.RefObject<HTMLDivElement>,
+  ) => {
+    setActiveLink(page);
+    if (ref) {
+      scrollTo(ref);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -48,30 +78,40 @@ export default function Header({ projectsRef, aboutRef }: HeaderProps) {
         justify="space-between"
       >
         <Heading size="lg" color="purple.600">
-          Lucas
+          Francis
         </Heading>
 
         {/* Desktop nav */}
         <HStack spacing={6} display={{ base: "none", md: "flex" }}>
           <ChakraLink
-            onClick={scrollToTop}
+            onClick={() => handleLinkClick("home")}
             cursor="pointer"
             fontWeight="medium"
             _hover={{ color: "purple.600" }}
+            color={activeLink === "home" ? "purple.600" : "black"}
           >
             Home
           </ChakraLink>
+
           <ChakraLink
-            onClick={() => scrollTo(projectsRef)} // ← now uses the prop
+            onClick={() => handleLinkClick("projects", projectsRef)}
             cursor="pointer"
             fontWeight="medium"
             _hover={{ color: "purple.600" }}
+            color={activeLink === "projects" ? "purple.600" : "black"}
           >
             Projects
           </ChakraLink>
-          <Button variant="ghost" colorScheme="purple">
+
+          <ChakraLink
+            onClick={() => handleLinkClick("about", aboutRef)}
+            cursor="pointer"
+            fontWeight="medium"
+            _hover={{ color: "purple.600" }}
+            color={activeLink === "about" ? "purple.600" : "black"}
+          >
             About
-          </Button>
+          </ChakraLink>
           <Button colorScheme="purple" rounded="full" size="sm" px={6}>
             Get in touch
           </Button>
@@ -93,11 +133,12 @@ export default function Header({ projectsRef, aboutRef }: HeaderProps) {
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth="1px">Menu</DrawerHeader>
           <DrawerBody>
-            <VStack align="stretch" spacing={6} mt={4}>
+            <VStack align="stretch" spacing={2} mt={4}>
               {/* Fix: add onClick + close drawer */}
               <Button
                 variant="ghost"
                 size="lg"
+                ml={"-1.4em"}
                 justifyContent="flex-start"
                 onClick={() => {
                   scrollTo(projectsRef);
