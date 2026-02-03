@@ -1,0 +1,37 @@
+
+/* :hover body{
+    display: flex;
+    gap: 2em;
+    color: blue;
+    background-color: limegreen;
+    
+    /* grid-template-columns: 9fr 2fr; */
+/* }  */
+
+.img{
+    margin-left: 20pc;
+
+}
+
+img:hover{
+    display: inline-block;
+    color: red;
+}
+.texts{
+    font-size: 6pc;
+    color: blue;
+    word-spacing: 2px;
+    margin-left: 40pc;
+    margin-top: -40pc;
+    display: none;
+}
+section u{
+    color: red;
+    font-size: 2em;
+    margin-left: -6em;
+    /* margin-top: 2em; */
+}
+img[alt="cart image"]{
+    width: 5%;
+    height: 1em;
+}
