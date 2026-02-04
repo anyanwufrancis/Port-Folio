@@ -16,6 +16,7 @@ import {
   Wrap,
   Avatar,
   useColorModeValue,
+
 } from "@chakra-ui/react";
 import { FaGithub, FaReact } from "react-icons/fa";
 import { SiChakraui } from "react-icons/si";
@@ -37,7 +38,7 @@ export default function Home() {
       {/* Hero / Intro Section */}
       <Container maxW="7xl" py={{ base: 16, md: 24 }}>
         <Stack
-          direction={{ base: "column-reverse", md: "row" }}
+          direction={{ base: "column", md: "row" }}
           spacing={{ base: 10, md: 16 }}
           align="center"
           justify="space-between"
@@ -53,7 +54,7 @@ export default function Home() {
             </Heading>
 
             <Text fontSize={{ base: "lg", md: "xl" }} color="gray.600">
-              I'm a frontend developer based in Italy. I help businesses build
+              I'm a frontend developer based in Nigeria. I help businesses build
               beautiful, fast, and user-friendly web applications.
             </Text>
 
@@ -64,6 +65,8 @@ export default function Home() {
               flexDirection={{ base: "column", sm: "row" }}
             >
               <Button
+                as="a"
+                href="mailto:your-email@example.com"
                 w={{ base: "full", sm: "auto" }}
                 size="lg"
                 colorScheme="purple"
@@ -71,12 +74,14 @@ export default function Home() {
               >
                 Get in touch
               </Button>
-
               <Button
                 w={{ base: "full", sm: "auto" }}
                 size="lg"
                 variant="outline"
                 rounded="full"
+                onClick={() =>
+                  projectsRef.current?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 Browse Projects
               </Button>
@@ -103,9 +108,9 @@ export default function Home() {
 
           <Box position="relative">
             <Avatar
-              size={{ base: "xl", md: "2xl", lg: "3xl" }}
-              name="Lucas"
-              src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              size={{ base: "xl", md: "2xl", lg: "xl" }}
+              name="Francis"
+              // src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
               border="5px solid"
               borderColor="white"
               shadow="xl"
@@ -118,8 +123,8 @@ export default function Home() {
       <Divider my={{ base: 12, md: 4 }} />
 
       {/* Featured Projects */}
-      <Box ref={projectsRef} py={20}>
-        <Container maxW="7xl" py={{ base: 12, md: 2 }}>
+      <Box ref={projectsRef} py={2}>
+        <Container maxW="7xl" py={{ base: 2, md: 2 }}>
           <VStack spacing={12}>
             <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
               Featured Projects.
@@ -174,7 +179,14 @@ export default function Home() {
                     >
                       Live Demo
                     </Button>
-                    <Button variant="ghost" leftIcon={<FaGithub />}>
+                    <Button
+                      as="a"
+                      href="https://github.com/anyanwufrancis/e-commerce-ui-store"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="ghost"
+                      leftIcon={<FaGithub />}
+                    >
                       GitHub
                     </Button>
                   </HStack>
@@ -191,16 +203,13 @@ export default function Home() {
                 _hover={{ transform: "translateY(-8px)", shadow: "xl" }}
               >
                 <Box bg="gray.100" h="240px" position="relative">
-             <Image
-src="printing.jpg"
-  alt="Printing Press Website UI"
-  objectFit="cover"
-  w="full"
-  h="full"
-/>
-
-
-
+                  <Image
+                    src="printing.png"
+                    alt="Printing Press Website UI"
+                    objectFit="cover"
+                    w="full"
+                    h="full"
+                  />
                 </Box>
                 <Box p={6}>
                   <Heading size="md" mb={2}>
@@ -223,7 +232,14 @@ src="printing.jpg"
                     >
                       Live Demo
                     </Button>
-                    <Button variant="ghost" leftIcon={<FaGithub />}>
+                      <Button
+                      as="a"
+                      href="https://github.com/anyanwufrancis/Simplelinkprintingpress"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="ghost"
+                      leftIcon={<FaGithub />}
+                    >
                       GitHub
                     </Button>
                   </HStack>
@@ -292,62 +308,63 @@ src="printing.jpg"
       </Container>
       {/* ================= ABOUT ================= */}
       <Box ref={aboutRef}>
-      <Container maxW="7xl" py={{ base: 16, md: 20 }}>
-        <SimpleGrid
-          columns={{ base: 1, md: 2 }}
-          spacing={{ base: 10, md: 16 }}
-          alignItems="center"
-        >
-          {/* Text */}
-          <VStack align="flex-start" spacing={6}>
-            <Heading fontSize={{ base: "3xl", md: "4xl" }}>
-              About Me<span style={{ color: "#805ad5" }}>.</span>
-            </Heading>
-
-            <Text fontSize={{ base: "md", md: "lg" }} color="gray.600">
-              I’m a passionate frontend developer who loves building clean,
-              responsive, and user-focused web interfaces. I enjoy turning
-              designs into real products that feel smooth and intuitive to use.
-            </Text>
-
-            <Text fontSize={{ base: "md", md: "lg" }} color="gray.600">
-              My main focus is creating modern web applications using React and
-              Chakra UI, with strong attention to layout, accessibility, and
-              performance. I’m constantly learning and improving my skills by
-              building real projects.
-            </Text>
-
-            <HStack spacing={4} pt={2}>
-              <Tag size="lg" colorScheme="purple">
-                Frontend
-              </Tag>
-              <Tag size="lg" colorScheme="purple">
-                UI Focused
-              </Tag>
-              <Tag size="lg" colorScheme="purple">
-                Responsive Design
-              </Tag>
-            </HStack>
-          </VStack>
-
-          {/* Image / Visual */}
-          <Box
-            bg={useColorModeValue("white", "gray.800")}
-            p={6}
-            rounded="2xl"
-            shadow="lg"
+        <Container maxW="7xl" py={{ base: 16, md: 20 }}>
+          <SimpleGrid
+            columns={{ base: 1, md: 2 }}
+            spacing={{ base: 10, md: 16 }}
+            alignItems="center"
           >
-            <Image
-              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97"
-              alt="Frontend developer workspace"
-              rounded="xl"
-              objectFit="cover"
-            />
-          </Box>
-        </SimpleGrid>
-      </Container>
+            {/* Text */}
+            <VStack align="flex-start" spacing={6}>
+              <Heading fontSize={{ base: "3xl", md: "4xl" }}>
+                About Me<span style={{ color: "#805ad5" }}>.</span>
+              </Heading>
+
+              <Text fontSize={{ base: "md", md: "lg" }} color="gray.600">
+                I’m a passionate frontend developer who loves building clean,
+                responsive, and user-focused web interfaces. I enjoy turning
+                designs into real products that feel smooth and intuitive to
+                use.
+              </Text>
+
+              <Text fontSize={{ base: "md", md: "lg" }} color="gray.600">
+                My main focus is creating modern web applications using React
+                and Chakra UI, with strong attention to layout, accessibility,
+                and performance. I’m constantly learning and improving my skills
+                by building real projects.
+              </Text>
+
+              <HStack spacing={4} pt={2}>
+                <Tag size="lg" colorScheme="purple">
+                  Frontend
+                </Tag>
+                <Tag size="lg" colorScheme="purple">
+                  UI Focused
+                </Tag>
+                <Tag size="lg" colorScheme="purple">
+                  Responsive Design
+                </Tag>
+              </HStack>
+            </VStack>
+
+            {/* Image / Visual */}
+            <Box
+              bg={useColorModeValue("white", "gray.800")}
+              p={6}
+              rounded="2xl"
+              shadow="lg"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97"
+                alt="Frontend developer workspace"
+                rounded="xl"
+                objectFit="cover"
+              />
+            </Box>
+          </SimpleGrid>
+        </Container>
       </Box>
-      <Footer/>
+      <Footer />
     </Box>
   );
 }
