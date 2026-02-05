@@ -112,9 +112,20 @@ export default function Header({ projectsRef, aboutRef }: HeaderProps) {
           >
             About
           </ChakraLink>
+          <ChakraLink
+              href="/contact"
+              cursor="pointer"
+                fontWeight="medium"
+                _hover={{ color: "purple.600" }}
+                            color={activeLink === "about" ? "purple.600" : "black"}
+                >
+                Contact
+              </ChakraLink>
+              <ChakraLink href="/contact">
           <Button colorScheme="purple" rounded="full" size="sm" px={6}>
             Get in touch
           </Button>
+          </ChakraLink>
         </HStack>
 
         {/* Mobile menu – still missing onClick for Projects */}
@@ -158,6 +169,14 @@ export default function Header({ projectsRef, aboutRef }: HeaderProps) {
                 _hover={{ color: "purple.600" }}
               >
                 About
+              </ChakraLink>
+              <ChakraLink
+              href="/contact"
+              cursor="pointer"
+                fontWeight="medium"
+                _hover={{ color: "purple.600" }}
+                >
+                Contact
               </ChakraLink>
 
               <Button

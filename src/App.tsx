@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import Contact from "./Components/contact";
 
 
+
 function AppContent() {
   const location = useLocation();
 
@@ -30,6 +31,8 @@ function AppContent() {
   if (loading) {
     return (
       <Flex align="center" justify="center" height="100vh" bg="white">
+
+
         <Image src="src/assets/45.svg" alt="Loading..." boxSize="50px" />
       </Flex>
     );
@@ -43,7 +46,6 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-
         </Routes>
       </Box>
     </>

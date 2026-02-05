@@ -16,7 +16,7 @@ import {
   Wrap,
   Avatar,
   useColorModeValue,
-
+  Link,
 } from "@chakra-ui/react";
 import { FaGithub, FaReact } from "react-icons/fa";
 import { SiChakraui } from "react-icons/si";
@@ -64,16 +64,16 @@ export default function Home() {
               w="full"
               flexDirection={{ base: "column", sm: "row" }}
             >
-              <Button
-                as="a"
-                href="mailto:your-email@example.com"
-                w={{ base: "full", sm: "auto" }}
-                size="lg"
-                colorScheme="purple"
-                rounded="full"
-              >
-                Get in touch
-              </Button>
+              <Link href="/contact">
+                <Button
+                  w={{ base: "full", sm: "auto" }}
+                  size="lg"
+                  colorScheme="purple"
+                  rounded="full"
+                >
+                  Get in touch
+                </Button>
+              </Link>
               <Button
                 w={{ base: "full", sm: "auto" }}
                 size="lg"
@@ -232,7 +232,7 @@ export default function Home() {
                     >
                       Live Demo
                     </Button>
-                      <Button
+                    <Button
                       as="a"
                       href="https://github.com/anyanwufrancis/Simplelinkprintingpress"
                       target="_blank"
@@ -245,7 +245,63 @@ export default function Home() {
                   </HStack>
                 </Box>
               </Box>
-
+              <Box
+                bg={cardBg}
+                rounded="2xl"
+                shadow="md"
+                overflow="hidden"
+                transition="all 0.3s"
+                _hover={{ transform: "translateY(-8px)", shadow: "xl" }}
+              >
+                <Box bg="gray.100" h="240px" position="relative">
+                  <Image
+                    src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80"
+                    alt="Blog Website UI"
+                    objectFit="cover"
+                    w="full"
+                    h="full"
+                  />
+                  <Box position="absolute" bottom={4} left={4}>
+                    <Heading color="white" size="lg">
+                      Blog Platform
+                    </Heading>
+                  </Box>
+                </Box>
+                <Box p={6}>
+                  <Heading size="md" mb={2}>
+                    Personal Blog Application
+                  </Heading>
+                  <Text color="gray.600" mb={4}>
+                    A modern blog platform where users can read, comment, and
+                    create posts. Built with React, Chakra UI, and CSS3 for a
+                    responsive, clean UI.
+                  </Text>
+                  <Wrap spacing={3} mb={6}>
+                    <Tag>React</Tag>
+                    <Tag>Chakra UI</Tag>
+                    <Tag>CSS3</Tag>
+                    <Tag>UI/UX</Tag>
+                  </Wrap>
+                  <HStack spacing={4}>
+                    <Button
+                      colorScheme="purple"
+                      leftIcon={<ExternalLinkIcon />}
+                    >
+                      Live Demo
+                    </Button>
+                    <Button
+                      as="a"
+                      href="https://github.com/anyanwufrancis/blog-platform"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="ghost"
+                      leftIcon={<FaGithub />}
+                    >
+                      GitHub
+                    </Button>
+                  </HStack>
+                </Box>
+              </Box>
               {/* You can add more project cards here */}
             </SimpleGrid>
           </VStack>
