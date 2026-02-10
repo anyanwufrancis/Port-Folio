@@ -24,7 +24,6 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Header from "./shared/header";
 import { useRef } from "react";
 import Footer from "./shared/footer";
-// import type { JSX } from "react/jsx-runtime";
 
 export default function Home() {
   const bg = useColorModeValue("gray.50", "gray.900");
@@ -123,7 +122,7 @@ export default function Home() {
       <Divider my={{ base: 12, md: 4 }} />
 
       {/* Featured Projects */}
-      <Box ref={projectsRef} py={2}>
+      <Box ref={projectsRef} py={16}>
         <Container maxW="7xl" py={{ base: 2, md: 2 }}>
           <VStack spacing={12}>
             <Heading textAlign="center" fontSize={{ base: "4xl", md: "5xl" }}>
@@ -291,7 +290,7 @@ export default function Home() {
                     </Button>
                     <Button
                       as="a"
-                      href="https://github.com/anyanwufrancis/blog-platform"
+                      href="https://github.com/anyanwufrancis/Blog-Ephraim"
                       target="_blank"
                       rel="noopener noreferrer"
                       variant="ghost"
@@ -311,7 +310,7 @@ export default function Home() {
       {/* Experience & Skills */}
       <Container maxW="7xl" py={{ base: 16, md: 4 }}>
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 12, lg: 16 }}>
-          <VStack align="flex-start" spacing={8}>
+          <VStack align="flex-start" spacing={8} >
             <Heading fontSize={{ base: "3xl", md: "4xl" }}>Experience.</Heading>
 
             <Box>
@@ -322,7 +321,7 @@ export default function Home() {
                 E-Commerce Platform
               </Heading>
               <Text color="gray.500" mt={1}>
-                Frontend Developer • Jan 2024 – Present
+                Frontend Developer • July 2024 – Present
               </Text>
               <VStack align="start" mt={4} spacing={2}>
                 <Text>

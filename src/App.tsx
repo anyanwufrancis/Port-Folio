@@ -1,4 +1,4 @@
-import { ChakraProvider, Box, Flex, Image } from "@chakra-ui/react";
+import { ChakraProvider, Box, Flex, Spinner } from "@chakra-ui/react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -32,8 +32,14 @@ function AppContent() {
     return (
       <Flex align="center" justify="center" height="100vh" bg="white">
 
-
-        <Image src="src/assets/45.svg" alt="Loading..." boxSize="50px" />
+ <Spinner
+          thickness="4px"
+          speed="0.85s"
+          emptyColor="gray.200"
+          color="#6b8f3f"           // matches your brand green from earlier menu
+          size="xl"                 // xl = quite visible but not overwhelming
+        />
+        {/* <Image src="src/assets/45.svg" alt="Loading..." boxSize="50px" /> */}
       </Flex>
     );
   }
