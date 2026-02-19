@@ -1,10 +1,9 @@
-import { Box, Stack, Text, HStack, IconButton, Link,  } from "@chakra-ui/react";
+import { Box, Stack, Text, HStack, IconButton, Link } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
-
   return (
-     <Box bg="gray.800" color="white" py={8} mt={16} as="footer">
+    <Box bg="gray.800" color="white" py={8} mt={16} as="footer">
       <Stack maxW="7xl" mx="auto" px={4} spacing={4} align="center">
         {/* Social Icons */}
         <HStack spacing={4}>
@@ -55,7 +54,10 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} Your Francis. All rights reserved.
         </Text>
         <Text fontSize="sm" textAlign="center">
-          Email: <Link href="mailto:youremail@example.com" color="purple.400">anyanwufrancis40@gmail.com</Link>
+          Email:{" "}
+          <Link href="mailto:youremail@example.com" color="purple.400">
+            anyanwufrancis40@gmail.com
+          </Link>
         </Text>
         <Text fontSize="sm" textAlign="center">
           Designed & Built by You

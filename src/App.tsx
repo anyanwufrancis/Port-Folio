@@ -9,8 +9,6 @@ import Home from "./Components/Home";
 import { useState, useEffect } from "react";
 import Contact from "./Components/contact";
 
-
-
 function AppContent() {
   const location = useLocation();
 
@@ -31,13 +29,12 @@ function AppContent() {
   if (loading) {
     return (
       <Flex align="center" justify="center" height="100vh" bg="white">
-
- <Spinner
+        <Spinner
           thickness="4px"
           speed="0.85s"
           emptyColor="gray.200"
-          color="#6b8f3f"           // matches your brand green from earlier menu
-          size="xl"                 // xl = quite visible but not overwhelming
+          color="#6b8f3f" // matches your brand green from earlier menu
+          size="xl" // xl = quite visible but not overwhelming
         />
         {/* <Image src="src/assets/45.svg" alt="Loading..." boxSize="50px" /> */}
       </Flex>

@@ -14,7 +14,6 @@ import {
   Text,
   VStack,
   Wrap,
-  Avatar,
   useColorModeValue,
   Link,
 } from "@chakra-ui/react";
@@ -104,18 +103,47 @@ export default function Home() {
               </Tag>
             </Wrap>
           </VStack>
+<Box
+// w={"270px"}
 
-          <Box position="relative">
-            <Avatar
-              size={{ base: "xl", md: "2xl", lg: "xl" }}
-              name="Francis"
-              // src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              border="5px solid"
-              borderColor="white"
-              shadow="xl"
-              mb={{ base: 4, md: 0 }}
+backgroundSize={"200% 200%"}
+
+/>
+{/*Image Container*/}
+           <Box
+           position={"relative"}
+w={{ base: "250px", md: "300px", lg: "400px" }}
+              h={{ base: "250px", md: "300px", lg: "400px" }}
+          borderRadius={"full"}
+          overflow={"hidden"}
+          border={"6px solid"}
+borderColor={useColorModeValue('white','gray.800')}
+boxShadow={"2xl"}
+_hover={{
+  transform:'scale(1.05)',
+  borderColor:'brand.500'
+}}
+transition={"all 0.35"}
+
+           >
+
+            <Image
+            src="logo 2.png"
+            alt="Francis"
+            w={"full"}
+            objectFit={"cover"}
+h={"full"}
+                            // name="Francis"
+              // border="5px solid"
+              // borderColor="white"
+              // shadow="xl"
+              // mb={{ base: 4, md: 0 }}
+              // fontSize={{ base: "24px", md: "36px", lg: "48px" }} // responsive text size
             />
-          </Box>
+           </Box>
+        
+
+          
         </Stack>
       </Container>
 
@@ -132,7 +160,7 @@ export default function Home() {
               A selection of applications and platforms I've built.
             </Text>
 
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
               {/* Project 1 - LUXEHUB */}
               <Box
                 bg={cardBg}
@@ -244,6 +272,8 @@ export default function Home() {
                   </HStack>
                 </Box>
               </Box>
+
+              {/* Project 3 - Blog Platform */}
               <Box
                 bg={cardBg}
                 rounded="2xl"
@@ -301,7 +331,65 @@ export default function Home() {
                   </HStack>
                 </Box>
               </Box>
-              {/* You can add more project cards here */}
+
+              {/* Project 4 - Healthy Bite */}
+              <Box
+                bg={cardBg}
+                rounded="2xl"
+                shadow="md"
+                overflow="hidden"
+                transition="all 0.3s"
+                _hover={{ transform: "translateY(-8px)", shadow: "xl" }}
+              >
+                <Box bg="gray.100" h="240px" position="relative">
+                  <Image
+                    src="image.png"
+                    alt="Healthy Meals"
+                    objectFit="cover"
+                    w="full"
+                    h="full"
+                  />
+                  <Box position="absolute" bottom={4} left={4}>
+                    <Heading color="white" size="lg">
+                      Healthy Bite
+                    </Heading>
+                  </Box>
+                </Box>
+                <Box p={6}>
+                  <Heading size="md" mb={2}>
+                    Eat Healthy, Live Better
+                  </Heading>
+                  <Text color="gray.600" mb={4}>
+                    Delicious and nutritious meals delivered right to your door.
+                    Enjoy fresh ingredients, flexible plans, and fast delivery
+                    without the hassle of cooking.
+                  </Text>
+                  <Wrap spacing={3} mb={6}>
+                    <Tag>React</Tag>
+                    <Tag>Chakra UI</Tag>
+                    <Tag>API</Tag>
+                    <Tag>CSS3</Tag>
+                  </Wrap>
+                   <HStack spacing={4}>
+                    <Button
+                      colorScheme="purple"
+                      leftIcon={<ExternalLinkIcon />}
+                    >
+                      Live Demo
+                    </Button>
+                    <Button
+                      as="a"
+                      href="https://github.com/anyanwufrancis/Blog-Ephraim"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="ghost"
+                      leftIcon={<FaGithub />}
+                    >
+                      GitHub
+                    </Button>
+                  </HStack>
+                </Box>
+              </Box>
             </SimpleGrid>
           </VStack>
         </Container>
@@ -310,7 +398,7 @@ export default function Home() {
       {/* Experience & Skills */}
       <Container maxW="7xl" py={{ base: 16, md: 4 }}>
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 12, lg: 16 }}>
-          <VStack align="flex-start" spacing={8} >
+          <VStack align="flex-start" spacing={8}>
             <Heading fontSize={{ base: "3xl", md: "4xl" }}>Experience.</Heading>
 
             <Box>
